@@ -9,7 +9,7 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
-const postRoutes = require("./routes/posts");
+const catProfileRoutes = require("./routes/catProfile");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -19,6 +19,7 @@ require("./config/passport")(passport);
 
 //Connect To Database
 connectDB();
+
 
 //Using EJS for views
 app.set("view engine", "ejs");
@@ -55,7 +56,7 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
-app.use("/post", postRoutes);
+app.use("/catProfile", catProfileRoutes);
 
 //Server Running
 app.listen(process.env.PORT, () => {

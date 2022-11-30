@@ -1,0 +1,27 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <h2>Your Fosters</h2>
+  <div class="row mt-5">
+      <div class="col-6">
+          <div>
+            <a href="/addcat" class="col-3 btn btn-primary">+</a>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div>
+          
+      </div>
+      <div class="col-6">
+        <ul class="row list-unstyled">
+        <% for(var i=0; i<cats.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/post/<%= cats[i]._id%>">
+              <img class="img-fluid" src="<%= cats[i].image%>">
+            </a>
+          </li>
+        <% } %>
+        </ul>
+        
+      </div>  
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>
